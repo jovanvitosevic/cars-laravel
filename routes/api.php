@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ManufacturerController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('login', 'UserController@login');
-Route::post('register', 'UserController@register');
+Route::post('login', [UserController::class, 'login']);
+Route::post('register', [UserController::class, 'register']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('logout', 'UserController@logout');
+    Route::post('logout',  [UserController::class, 'logout']);
     Route::apiResource('manufacturers', ManufacturerController::class);
 });
