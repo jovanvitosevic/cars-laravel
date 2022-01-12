@@ -11,6 +11,11 @@ class Manufacturer extends Model
 
     protected $fillable = ['name', 'contact_email', 'pib', 'contact_phone', 'country_id'];
 
+    public function models()
+    {
+        return $this->hasMany(CarModel::class);
+    }
+
     public function country()
     {
         return $this->belongsTo(Country::class);
