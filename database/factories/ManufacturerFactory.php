@@ -17,7 +17,8 @@ class ManufacturerFactory extends Factory
             "name" => $this->faker->company,
             "pib" => $this->faker->unique->regexify("[0-9]{15}"),
             "contact_email" => $this->faker->companyEmail,
-            "pib" => $this->faker->phoneNumber
+            "contact_phone" => $this->faker->phoneNumber,
+            "country_id" => $this->faker->numberBetween(1, 6)
         ];
     }
 }
